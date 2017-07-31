@@ -216,6 +216,7 @@ class DS_recipe_lib {
 			# already set
 			$this->my_url = $url;
 		} else {
+			error_log(print_r($_SERVER, TRUE));
 			$this->my_url = $this->rm_queryparameters($this->full_url($_SERVER));
 		}
 		error_log(print_r($this->my_url, TRUE)); 
