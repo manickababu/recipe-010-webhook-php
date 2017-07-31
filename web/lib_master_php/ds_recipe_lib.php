@@ -219,7 +219,7 @@ class DS_recipe_lib {
 			$this->my_url = $this->rm_queryparameters($this->full_url($_SERVER));
 		}
 		error_log(print_r($this->my_url, TRUE)); 
-		str_replace("http","https",$this->my_url);
+		$this->my_url = str_replace("http","https",$this->my_url);
 		error_log(print_r($this->my_url, TRUE)); 
 		return $this->my_url;
 	}
