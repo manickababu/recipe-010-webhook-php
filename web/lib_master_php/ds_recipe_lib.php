@@ -218,6 +218,7 @@ class DS_recipe_lib {
 		} else {
 			$this->my_url = $this->rm_queryparameters($this->full_url($_SERVER));
 		}
+		str_replace("http","https",$this->my_url);
 		return $this->my_url;
 	}
 	
@@ -239,7 +240,6 @@ class DS_recipe_lib {
 	}
 	
 	private function rm_queryparameters ($in) {
-		print $in;
 		$parts = explode ("?", $in);
 		return $parts[0];
 	}
