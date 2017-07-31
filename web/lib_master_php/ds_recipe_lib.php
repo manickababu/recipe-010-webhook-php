@@ -239,6 +239,7 @@ class DS_recipe_lib {
 	}
 	
 	private function rm_queryparameters ($in) {
+		print $in;
 		$parts = explode ("?", $in);
 		return $parts[0];
 	}
