@@ -216,18 +216,16 @@ class DS_recipe_lib {
 			# already set
 			$this->my_url = $url;
 		} else {
-			error_log(print_r($_SERVER, TRUE));
 			$this->my_url = $this->rm_queryparameters($this->full_url($_SERVER));
 		}
-		error_log(print_r($this->my_url, TRUE)); 
-		#$this->my_url = str_replace("http","https",$this->my_url);
-		error_log(print_r($this->my_url, TRUE)); 
+		#error_log(print_r($this->my_url, TRUE)); 
 		return $this->my_url;
 	}
 	
 	# See http://stackoverflow.com/a/8891890/64904
 	private function url_origin( $s, $use_forwarded_host = false ) {
-	    $ssl      = True; #( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
+	    # Force protocol to be SSL now
+		$ssl      = True; #( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
 	    $sp       = strtolower( $s['SERVER_PROTOCOL'] );
 	    $protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . ( ( $ssl ) ? 's' : '' );
 	    $port     = $s['SERVER_PORT'];
